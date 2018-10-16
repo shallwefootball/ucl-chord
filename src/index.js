@@ -135,15 +135,18 @@ const face = svg
     return d.img;
   });
 
-const circle = svg
+const circleWrapper = svg
   .append("g")
-  .selectAll("circle")
+  .selectAll("g")
   .data(chord.groups)
   .enter()
+  .append("g");
+
+const circle = circleWrapper
   .append("circle")
+  .attr("r", faceCircle)
   .attr("cx", d => circleDistance * Math.cos(getGroupPosition(d)))
   .attr("cy", d => circleDistance * Math.sin(getGroupPosition(d)))
-  .attr("r", faceCircle)
   .style("fill", (_, i) => {
     return `url(#img-${squad[i].name})`;
   })
@@ -174,15 +177,39 @@ box
 const boxRect = box
   .append("rect")
   .attr("x", 6)
-  .attr("height", 28)
+  .attr("height", 56)
+  .attr("width", 74)
   .attr("rx", 12)
   .attr("fill", ({ index }) => colors(index));
+
+const tpr = textWrapper
+  .append("text")
+  .attr("font-family", "sans-serif")
+  .attr("font-size", 7)
+  .attr("x", 18)
+  .attr("y", 15)
+  .text("*TPR")
+  .attr("fill", "white");
+
+const playerTotalPasses = textWrapper
+  .append("text")
+  .attr("font-family", "sans-serif")
+  .attr("text-anchor", "end")
+  .attr("font-size", 28)
+  .attr("x", 70)
+  .attr("y", 30)
+  .text((d, i) => {
+    return squad[i].totalPasses;
+  })
+  .attr("fill", "white");
 
 const playerName = textWrapper
   .append("text")
   .attr("font-family", "sans-serif")
-  .attr("x", 18)
-  .attr("y", 19.5)
+  .attr("font-size", 11)
+  .attr("text-anchor", "end")
+  .attr("x", 70)
+  .attr("y", 44)
   .text((d, i) => {
     return squad[i].name;
   })
@@ -217,7 +244,7 @@ const hover = isHover => {
       .transition()
       .style("opacity", opacity);
 
-    circle
+    circleWrapper
       .filter(d => active.every(index => d.index !== index))
       .transition()
       .style("opacity", () => (isHover ? 0.1 : 1));
@@ -230,12 +257,10 @@ const hover = isHover => {
         const cy = circleDistance * Math.sin(getGroupPosition(d));
         const scaleCX = cx - cx / scale;
         const scaleCY = cy - cy / scale;
+
         return `scale(${scale}) translate(${-scaleCX}, ${-scaleCY})`;
       });
 
-    boxRect.filter(d => d.index === i).attr("width", () => {
-      return playerName.filter(d => d.index === i).property("clientWidth") - 10;
-    });
     textWrapper
       .filter(d => d.index === i)
       .transition()
@@ -288,5 +313,3 @@ const pathHover = isHover => {
 };
 
 passPath.on("mouseenter", pathHover(true)).on("mouseleave", pathHover(false));
-
-// svg

@@ -1,58 +1,85 @@
 [
   {
     "name": "Navas",
-    "img": "https://user-images.githubusercontent.com/9348198/46273091-0a622700-c58f-11e8-8d32-e23b898fc787.jpg"
+    "img": "https://user-images.githubusercontent.com/9348198/46273091-0a622700-c58f-11e8-8d32-e23b898fc787.jpg",
+    "totalPasses": 9
   },
   {
     "name": "Marcelo",
-    "img": "https://user-images.githubusercontent.com/9348198/46273088-09c99080-c58f-11e8-95d2-fdcc075f1744.jpg"
+    "img": "https://user-images.githubusercontent.com/9348198/46273088-09c99080-c58f-11e8-95d2-fdcc075f1744.jpg",
+    "totalPasses": 71
+
   },
   {
     "name": "Ramos",
-    "img": "https://user-images.githubusercontent.com/9348198/46273092-0a622700-c58f-11e8-9f7d-5f465e5bebca.jpg"
+    "img": "https://user-images.githubusercontent.com/9348198/46273092-0a622700-c58f-11e8-9f7d-5f465e5bebca.jpg",
+    "totalPasses": 66
+
   },
   {
     "name": "Varane",
-    "img": "https://user-images.githubusercontent.com/9348198/46273094-0afabd80-c58f-11e8-8886-2e0bbb39814c.jpg"
+    "img": "https://user-images.githubusercontent.com/9348198/46273094-0afabd80-c58f-11e8-8886-2e0bbb39814c.jpg",
+    "totalPasses": 47
+
   },
   {
     "name": "Carvajal",
-    "img": "https://user-images.githubusercontent.com/9348198/46273082-0930fa00-c58f-11e8-9933-417efb2b0561.jpg"
+    "img": "https://user-images.githubusercontent.com/9348198/46273082-0930fa00-c58f-11e8-9933-417efb2b0561.jpg",
+    "totalPasses": 25
+
   },
   {
     "name": "Kroos",
-    "img": "https://user-images.githubusercontent.com/9348198/46273086-09c99080-c58f-11e8-9389-ccd2224cc14b.jpg"
+    "img": "https://user-images.githubusercontent.com/9348198/46273086-09c99080-c58f-11e8-9389-ccd2224cc14b.jpg",
+    "totalPasses": 82
+
   },
   {
     "name": "Casemiro",
-    "img": "https://user-images.githubusercontent.com/9348198/46273083-0930fa00-c58f-11e8-9d4a-189cb5fd1299.jpg"
+    "img": "https://user-images.githubusercontent.com/9348198/46273083-0930fa00-c58f-11e8-9d4a-189cb5fd1299.jpg",
+    "totalPasses": 35
+
   },
   {
     "name": "Modric",
-    "img": "https://user-images.githubusercontent.com/9348198/46273089-09c99080-c58f-11e8-8a1a-f7dae43f3977.jpg"
+    "img": "https://user-images.githubusercontent.com/9348198/46273089-09c99080-c58f-11e8-8a1a-f7dae43f3977.jpg",
+    "totalPasses": 65
+
   },
   {
     "name": "Isco",
-    "img": "https://user-images.githubusercontent.com/9348198/46273084-0930fa00-c58f-11e8-9784-e33b34daa085.jpg"
+    "img": "https://user-images.githubusercontent.com/9348198/46273084-0930fa00-c58f-11e8-9784-e33b34daa085.jpg",
+    "totalPasses": 50
+
   },
   {
     "name": "Ronaldo",
-    "img": "https://user-images.githubusercontent.com/9348198/46273093-0a622700-c58f-11e8-8362-fac4b069296f.jpg"
+    "img": "https://user-images.githubusercontent.com/9348198/46273093-0a622700-c58f-11e8-8362-fac4b069296f.jpg",
+    "totalPasses": 45
+
   },
   {
     "name": "Benzema",
-    "img": "https://user-images.githubusercontent.com/9348198/46273081-0930fa00-c58f-11e8-84d3-e33f05be7426.jpg"
+    "img": "https://user-images.githubusercontent.com/9348198/46273081-0930fa00-c58f-11e8-84d3-e33f05be7426.jpg",
+    "totalPasses": 9
+
   },
   {
     "name": "Nacho",
-    "img": "https://user-images.githubusercontent.com/9348198/46273090-0a622700-c58f-11e8-8a10-c27fe830f031.jpg"
+    "img": "https://user-images.githubusercontent.com/9348198/46273090-0a622700-c58f-11e8-8a10-c27fe830f031.jpg",
+    "totalPasses": 45
+
   },
   {
     "name": "Bale",
-    "img": "https://user-images.githubusercontent.com/9348198/46273080-08986380-c58f-11e8-8cc6-54e7e931dfeb.jpg"
+    "img": "https://user-images.githubusercontent.com/9348198/46273080-08986380-c58f-11e8-8cc6-54e7e931dfeb.jpg",
+    "totalPasses": 10
+
   },
   {
     "name": "Asensio",
-    "img": "https://user-images.githubusercontent.com/9348198/46273078-08986380-c58f-11e8-93fb-c90409c338e2.jpg"
+    "img": "https://user-images.githubusercontent.com/9348198/46273078-08986380-c58f-11e8-93fb-c90409c338e2.jpg",
+    "totalPasses": 2
+
   }
 ]
