@@ -36,6 +36,10 @@ const matrix = [
   [0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] // 20 asensio
 ];
 
+const sums = matrix.map(m => {
+  return _.sum(m);
+});
+
 // const matrix = [
 //   [0, 3, 3, 2, 5, 2],
 //   [4, 0, 3, 2, 4, 3],
@@ -54,7 +58,7 @@ const arcOuterRadius = outerRadius * 1.08;
 const circleDistance = outerRadius * 1.21;
 
 const colors = d3
-  .scaleSequential(d3.interpolateRdYlBu)
+  .scaleSequential(d3.interpolateWarm)
   .domain([0, matrix.length]);
 const chord = customChordLayout()
   .padding(0.09)
@@ -154,7 +158,47 @@ const circle = circleWrapper
   .style("stroke", ({ index }) => colors(index))
   .style("stroke-width", 2);
 
-const textWrapper = svg
+const rWrapper = svg
+  .append("g")
+  .selectAll("g")
+  .data(chord.groups)
+  .enter()
+  .append("g")
+  .attr(
+    "transform",
+    d =>
+      `translate(${circleDistance * Math.cos(getGroupPosition(d)) +
+        30}, ${circleDistance * Math.sin(getGroupPosition(d)) - 15})`
+  )
+  .attr("display", "none");
+
+rWrapper
+  .append("path")
+  .attr("fill", ({ index }) => colors(index))
+  .attr(
+    "d",
+    "M6.09039 17.4802L0 14L6.09039 10.5198C6.81975 4.59074 11.8738 0 18 0H36C42.6274 0 48 5.37258 48 12V16C48 22.6274 42.6274 28 36 28H18C11.8738 28 6.81975 23.4093 6.09039 17.4802Z"
+  );
+
+rWrapper
+  .append("text")
+  .attr("x", 13)
+  .attr("y", 12)
+  .attr("fill", "white")
+  .attr("font-family", "sans-serif")
+  .attr("font-size", 7)
+  .text("*P");
+
+const rText = rWrapper
+  .append("text")
+  .attr("x", 42)
+  .attr("y", 20)
+  .attr("text-anchor", "end")
+  .attr("fill", "white")
+  .attr("font-family", "sans-serif")
+  .attr("font-size", 16);
+
+const tpWrapper = svg
   .append("g")
   .selectAll("g")
   .data(chord.groups)
@@ -168,9 +212,9 @@ const textWrapper = svg
   )
   .attr("display", "none");
 
-const box = textWrapper.append("g");
+const box = tpWrapper.append("g");
 
-box
+const boxTail = box
   .append("path")
   .attr("d", "M0 14L7 10L7 18L0 14Z")
   .attr("fill", ({ index }) => colors(index));
@@ -182,16 +226,16 @@ const boxRect = box
   .attr("rx", 12)
   .attr("fill", ({ index }) => colors(index));
 
-const tpr = textWrapper
+const tp = tpWrapper
   .append("text")
   .attr("font-family", "sans-serif")
   .attr("font-size", 7)
   .attr("x", 18)
   .attr("y", 15)
-  .text("*TPR")
+  .text("*TP")
   .attr("fill", "white");
 
-const playerTotalPasses = textWrapper
+const totalPasses = tpWrapper
   .append("text")
   .attr("font-family", "sans-serif")
   .attr("text-anchor", "end")
@@ -199,11 +243,11 @@ const playerTotalPasses = textWrapper
   .attr("x", 70)
   .attr("y", 30)
   .text((d, i) => {
-    return squad[i].totalPasses;
+    return sums[i];
   })
   .attr("fill", "white");
 
-const playerName = textWrapper
+const playerName = tpWrapper
   .append("text")
   .attr("font-family", "sans-serif")
   .attr("font-size", 11)
@@ -261,7 +305,7 @@ const hover = isHover => {
         return `scale(${scale}) translate(${-scaleCX}, ${-scaleCY})`;
       });
 
-    textWrapper
+    tpWrapper
       .filter(d => d.index === i)
       .transition()
       .attr("transform", d => {
@@ -309,6 +353,28 @@ const pathHover = isHover => {
       )
       .transition()
       .style("opacity", () => (isHover ? 0.1 : 1));
+
+    rText.text((d, i) => {
+      if (k.source.index === i) {
+        return k.source.value;
+      }
+      if (k.target.index === i) {
+        return k.target.value;
+      }
+    });
+
+    rWrapper
+      .filter((d, i) => k.source.index === i || k.target.index === i)
+      .transition()
+      .attr("transform", d => {
+        const cx = circleDistance * Math.cos(getGroupPosition(d));
+        const cy = circleDistance * Math.sin(getGroupPosition(d));
+        return isHover
+          ? `translate(${cx + (30 - 10)}, ${cy - 15})`
+          : `translate(${cx + 30}, ${cy - 15})`;
+      })
+      .attr("display", isHover ? "auto" : "none")
+      .style("opacity", () => (isHover ? 1 : 0.1));
   };
 };
 

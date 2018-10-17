@@ -3,15 +3,84 @@
 <head>
 	<title>Simple Chord Diagram </title>
 	<meta charset="UTF-8" />
+	<style>
+		* {
+			font-family: sans-serif;
+			 color: #fff;
+		}
+		html {
+			background-image: url('https://user-images.githubusercontent.com/9348198/47071145-c11c0380-d22d-11e8-92bf-579c03ec62f9.png');
+			background-position: center; 
+		  background-size: cover;
+		}
+		body {
+			margin: 0;
+			padding-bottom: 120px;
+		}
+		#container {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+		}
+		#title {
+			margin: 30px;
+			display: flex;
+			justify-centent: center;
+		}
+		#title img {
+			height: 37px;
+			margin-right: 20px;
+		}
+		#title p {
+			margin: 0;
+			text-align: right;
+			font-size: 19px;
+		}
+		#word {
+			font-size: 10px;
+		}
+		#ref, #coder {
+			margin-top: 20px;
+			font-size: 9px;
+		}
+		h2 {
+			margin : 0;
+			font-size: 30px;
+		}
+		a {
+			margin: 0 20px;
+		}
+		#refs img {
+			height: 50px;
+		}
+		#git-link {
+			font-size: 11px;
+		}
+	</style>
 </head>
 
 <body>
-	<h2>Passing Distribution</h2>
-	<div id="app"></div>
-	<p>*TPR: Total passes received</p>
-	<p>reference : 
-	<a href="https://www.visualcinnamon.com/2016/06/orientation-gradient-d3-chord-diagram.html" target="_blank">https://www.visualcinnamon.com/2016/06/orientation-gradient-d3-chord-diagram.html</a>
-	</p>
+	<div id="container">
+		<div id="title">
+			<img src="https://user-images.githubusercontent.com/9348198/47070019-55389b80-d22b-11e8-90ea-410a7bbfbe6f.png"/>
+			<h2>
+				Passing Distribution 
+				<p>UCL Final 2017/18</p>
+			</h2>
+		</div>
+		<div id="app"></div>
+		<p id="word">*P: Passes  *TP: Total passes</p>
+		<p id="ref"> - reference - </p>
+		<div id="refs">
+			<a href="https://www.uefa.com/"><img alt="UEFA.COM" title="UEFA.COM" src="https://user-images.githubusercontent.com/9348198/47068019-1eac5200-d226-11e8-83b5-c0ddc83d908b.png"></a>
+			<a href="https://www.visualcinnamon.com"><img alt="visualcinnamon.com" title="visualcinnamon.com" src="https://user-images.githubusercontent.com/9348198/47068598-aba3db00-d227-11e8-8665-e3e0f2c75b35.png"></a>
+		</div>
+		<p id="coder"> - coder - </p>
+		<p id="git-link">
+			<a href="https://github.com/shallwefootball" target="_blank">@shallwefootball</a>
+		</p>
+		
+	</div>
 	<script src="src/index.js"></script>
 </body>
 
