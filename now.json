@@ -1,0 +1,10 @@
+{
+  "name": "madrid-passing-chord",
+  "type": "NPM", 
+  "scale": {
+    "sfo1": {
+      "min": 1,  
+      "max": "auto"
+    }
+  }
+}
