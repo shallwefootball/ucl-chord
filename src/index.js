@@ -65,7 +65,7 @@ const chord = customChordLayout()
   .matrix(matrix);
 const ribbon = d3.ribbon().radius(innerRadius);
 
-svg.style("padding", "1em 4em");
+svg.style("padding", "1em 4em").style("overflow", "visible");
 
 const grads = svg
   .append("defs")
